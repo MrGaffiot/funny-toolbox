@@ -38,6 +38,8 @@ def start():
         separate()
     elif command == "ytdownload":
         download()
+    elif command == "rename":
+        rename()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
     
