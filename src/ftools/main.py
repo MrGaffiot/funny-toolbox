@@ -1,5 +1,6 @@
 import click
 from . import imageSeparator as separator
+from . import ytinstaller as downloader
 import os
 from colorama import Fore
 
@@ -27,11 +28,14 @@ def start():
     cprint("So don't expect anything crazy.", size=size)
     cprint("List of features:", size=size)
     cprint("separate: separates parts of images that are not connected into multimple images")
+    cprint("ytdownload: downloads vids from YouTube using URL")
     
     command = input("> ")
 
     if command == "separate":
         separate()
+    elif command == "ytdownload":
+        download()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
     
@@ -40,6 +44,11 @@ def start():
 @click.option("--o", prompt="Path to folder for output", help="The path for the output image.")
 def separate(i, o):
     separator.separate_connected_components(image_path=i, output_dir=o)
+
+@click.command()
+@click.option("--url", prompt="URL for the video you want to download", help="The URL for the video to be downloaded.")
+def download(url):
+    downloader.download_youtube_video(url=url)
 
 if __name__=="__main__":
     start()

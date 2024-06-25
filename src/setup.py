@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='ftools',
-    version='0.1.0',
+    version='a0.2',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
         'Click',
-        'opencv-python'
+        'opencv-python',
+        'pytube'
     ],
     entry_points={
         'console_scripts': [
