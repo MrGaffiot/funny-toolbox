@@ -1,5 +1,5 @@
 import click
-import scriptFiles.imageSeparator as separator
+from . import imageSeparator as separator
 import os
 from colorama import Fore
 

@@ -1,16 +1,17 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='ftools',
-    version='a0.1',
-    py_modules=['ftools'],
+    version='0.1.0',
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'Click',
-        'cv2'
+        'opencv-python'
     ],
     entry_points={
         'console_scripts': [
-            'ftools = main:start',
+            'ftools = ftools.main:start',
         ],
     },
 )
