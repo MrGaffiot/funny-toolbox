@@ -1,6 +1,7 @@
 import click
 from . import imageSeparator as separator
 from . import ytinstaller as downloader
+from . import renamer 
 import os
 from colorama import Fore
 
@@ -27,8 +28,9 @@ def start():
     cprint("Welcome to ftools (short for funny tools)! This is just a small project by me (walper),", size=size)
     cprint("So don't expect anything crazy.", size=size)
     cprint("List of features:", size=size)
-    cprint("separate: separates parts of images that are not connected into multimple images")
-    cprint("ytdownload: downloads vids from YouTube using URL")
+    cprint("separate: separates parts of images that are not connected into multimple images", size=size)
+    cprint("ytdownload: downloads vids from YouTube using URL",size=size)
+    cprint("rename: renames all files in a folder",size=size)
     
     command = input("> ")
 
@@ -49,6 +51,11 @@ def separate(i, o):
 @click.option("--url", prompt="URL for the video you want to download", help="The URL for the video to be downloaded.")
 def download(url):
     downloader.download_youtube_video(url=url)
+
+@click.command()
+@click.option("--p", prompt="Path to the folder with the files to rename", help="Path to the folder with the files to rename.")
+def rename(p):
+    renamer.rename_files_in_directory(p)
 
 if __name__=="__main__":
     start()
