@@ -1,8 +1,8 @@
-import click
+import click, os
 from . import imageSeparator as separator
 from . import ytinstaller as downloader
 from . import renamer 
-import os
+from . import vidmaker
 from colorama import Fore
 
 line1 = "      ___           ___           ___           ___           ___       ___     "
@@ -31,6 +31,7 @@ def start():
     cprint("separate: separates parts of images that are not connected into multimple images", size=size)
     cprint("ytdownload: downloads vids from YouTube using URL",size=size)
     cprint("rename: renames all files in a folder",size=size)
+    cprint("makevid: merges an audio file with image to make video",size=size)
     
     command = input("> ")
 
@@ -40,6 +41,8 @@ def start():
         download()
     elif command == "rename":
         rename()
+    elif command == "makevid":
+        makevid()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
     
@@ -58,6 +61,12 @@ def download(url):
 @click.option("--p", prompt="Path to the folder with the files to rename", help="Path to the folder with the files to rename.")
 def rename(p):
     renamer.rename_files_in_directory(p)
+
+@click.command()
+@click.option("--ipath", prompt="Path to the image you want to use", help="Path to the used image.")
+@click.option("--apath", prompt="Path to the audio file you want to use", help="Path to the audio file that'll be used")
+def makevid(ipath, apath):
+    vidmaker.merge_image_and_audio(image_path=ipath, audio_path=apath)
 
 if __name__=="__main__":
     start()
