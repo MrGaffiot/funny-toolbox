@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='ftools',
-    version='a0.6',
+    name='fools',
+    version='a0.7',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -10,11 +10,12 @@ setup(
         'opencv-python',
         'pytube',
         'moviepy',
-        'flask'
+        'flask',
+        'pillow'
     ],
     entry_points={
         'console_scripts': [
-            'ftools = ftools.main:start',
+            'fools = fools.main:start',
         ],
     },
 )
