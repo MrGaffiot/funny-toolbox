@@ -1,8 +1,9 @@
 import click, os
 from . import imageSeparator as separator
-from . import ytinstaller as downloader
+from . import ytdownloader as downloader
 from . import renamer 
 from . import vidmaker
+from . import fsender
 from colorama import Fore
 
 line1 = "      ___           ___           ___           ___           ___       ___     "
@@ -32,6 +33,7 @@ def start():
     cprint("ytdownload: downloads vids from YouTube using URL",size=size)
     cprint("rename: renames all files in a folder",size=size)
     cprint("makevid: merges an audio file with image to make video",size=size)
+    cprint("fsender: puts up a small website to either download or upload files, check out official repo for more info", size=size)
     
     command = input("> ")
 
@@ -43,6 +45,8 @@ def start():
         rename()
     elif command == "makevid":
         makevid()
+    elif command == "fsender":
+        sender()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
     
@@ -67,6 +71,20 @@ def rename(p):
 @click.option("--apath", prompt="Path to the audio file you want to use", help="Path to the audio file that'll be used")
 def makevid(ipath, apath):
     vidmaker.merge_image_and_audio(image_path=ipath, audio_path=apath)
+
+@click.command()
+@click.option("--m", prompt="Do you want to send or recive files (s/r)", help="Mode, recive or send")
+@click.option("--p", prompt="Path to the file (enter some random letters if reciving)", help="Path to the file to be sent", required=False)
+@click.option("--port", prompt="The port you want to use", help="The port being used to display the website.")
+def sender(m, p, port):
+    if m.lower() == "r":
+        fsender.runReciver(portNum=port)
+        cprint(Fore.YELLOW + "ATTENTION! This bit is a bit complicated, but it's whatever your IP/URL is and /upload")
+    elif m.lower() == "s":
+        fsender.runUploader(filePath=p, portNum=port)
+        cprint(Fore.YELLOW + "ATTENTION! This bit is a bit complicated, but it's whatever your IP/URL is and /download")
+    else:
+        print(Fore.RED + "Invalid option!" + Fore.RESET)
 
 if __name__=="__main__":
     start()
