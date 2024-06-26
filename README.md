@@ -24,6 +24,9 @@ Merges a sound file and a image file to make a vid.
 ### fsender
 The most complicated feature as of writing this, basicly puts up a small website that allows you to send/recive files of unlimited size with reasonable speed. You can open a port, but a service like logMeInHamachi or ngrok is reccomended.
 
+### surround
+Surrounds a image with black space and adds a text (for funny)
+
 ## walper where?
 Im on discord, username is walper :3
 
