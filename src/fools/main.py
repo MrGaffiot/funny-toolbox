@@ -58,6 +58,10 @@ def start():
         extract()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
+        
+@click.group()
+def cli():
+    pass
     
 @click.command()
 @click.option("--i", prompt="Path to the input image", help="The path for the image to process.")
@@ -105,6 +109,12 @@ def surround(p,t):
 @click.option("--vp", prompt="The path to the video", help="The path to the video.")
 def extract(vp):
     extractor.extract_audio(video_path=vp, output_audio_path="output_audio.mp3")
+    
+cli.add_command(separate)
+cli.add_command(download)
+cli.add_command(rename)
+cli.add_command(makevid)
+cli.add_command(sender)
+cli.add_command(surround)
+cli.add_command(extract)
 
-if __name__=="__main__":
-    start()

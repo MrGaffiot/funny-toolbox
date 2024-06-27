@@ -9,6 +9,17 @@ Some funny stuff
 python setup.py install
 ```
 
+## How to use??
+Either run 
+```
+fools
+```
+or
+```
+afools
+```
+fools is a bit more fancy, it'll show the logo and the commands (there'll be a kind of promopt thingy when you run fools), while afools is just a normal lame command line application (you just run afools COMMAND, no prompt no nothing).
+
 ## Features
 
 ### Separate

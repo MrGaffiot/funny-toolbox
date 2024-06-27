@@ -17,6 +17,7 @@ setup(
     entry_points={
         'console_scripts': [
             'fools = fools.main:start',
+            'afools = fools.main:cli'
         ],
     },
 )
