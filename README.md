@@ -2,7 +2,9 @@
 Some funny stuff
 
 ## How to install???
-Run this command while in the src directory:
+1) Install latest python (https://www.python.org/)
+2) Get the .zip fiel from relase
+3) Run this command while in the src directory:
 ```
 python setup.py install
 ```
@@ -26,6 +28,9 @@ The most complicated feature as of writing this, basicly puts up a small website
 
 ### surround
 Surrounds a image with black space and adds a text (for funny)
+
+### extractor
+Extracts sound from video.
 
 ## walper where?
 Im on discord, username is walper :3

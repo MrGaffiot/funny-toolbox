@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fools',
-    version='a0.7',
+    version='a0.8',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
