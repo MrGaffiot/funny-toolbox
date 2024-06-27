@@ -41,6 +41,3 @@ def runUploader(filePath, portNum=5000):
         return send_file(path_or_file=filePath)
     
     app.run(port=portNum)
-
-if __name__ == '__main__':
-    runReciver()

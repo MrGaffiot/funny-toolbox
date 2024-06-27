@@ -21,8 +21,3 @@ def download_youtube_video(url, output_path='.'):
 
     except Exception as e:
         print(Fore.RED + f'An error occurred: {e}, report to walper either on github (on the official repo) or on discord (walper)' + Fore.RESET)
-
-# Example usage
-if __name__ == '__main__':
-    video_url = input("The URL for your video: ")
-    download_youtube_video(video_url)

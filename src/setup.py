@@ -11,7 +11,8 @@ setup(
         'pytube',
         'moviepy',
         'flask',
-        'pillow'
+        'pillow',
+        'moviepy'
     ],
     entry_points={
         'console_scripts': [

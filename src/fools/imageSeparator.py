@@ -56,8 +56,3 @@ def separate_connected_components(image_path, output_dir=None):
     except Exception as e:
         print(Fore.RED + "Something very weird and unexpected happened, go report this error to the repo of this project (https://github.com/MrGaffiot/funny-toolbox)")
         print(e + Style.RESET_ALL)
-
-    if __name__ == "__main__":
-        input_image_path = input("The path for the image: ")
-        output_directory = input("The path for the output directory: ")
-        separate_connected_components(input_image_path, output_directory)

@@ -30,7 +30,3 @@ def rename_files_in_directory(directory_path):
         # Rename the file
         os.rename(old_file, new_file)
         print(f"Renamed '{old_file}' to '{new_file}'")
-
-if __name__ ==  "__main__":
-    directory_path = input("The folder with the files to rename: ")
-    rename_files_in_directory(directory_path)

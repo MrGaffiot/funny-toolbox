@@ -5,6 +5,7 @@ from . import renamer
 from . import vidmaker
 from . import fsender
 from . import surrounder
+from . import extractor
 from colorama import Fore
 
 line1 = "      ___           ___           ___           ___       ___     "
@@ -37,6 +38,7 @@ def start():
     cprint("makevid: merges an audio file with image to make video",size=size)
     cprint("fsender: puts up a small website to either download or upload files, check out official repo for more info", size=size)
     cprint("surround: surrounds an image with balck edges and adds some text (funny)", size=size)
+    cprint("extract: extracts audio from a video file")
     
     command = input("> ")
 
@@ -52,6 +54,8 @@ def start():
         sender()
     elif command == "surround":
         surround()
+    elif command == "extract":
+        extract()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
     
@@ -96,6 +100,11 @@ def sender(m, p, port):
 @click.option("--t", prompt="The text you want to display", help="The text to be added.")
 def surround(p,t):
     surrounder.add_black_border_with_text(image_path=p, text=t)
+    
+@click.command()
+@click.option("--vp", prompt="The path to the video", help="The path to the video.")
+def extract(vp):
+    extractor.extract_audio(video_path=vp, output_audio_path="output_audio.mp3")
 
 if __name__=="__main__":
     start()

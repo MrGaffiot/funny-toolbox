@@ -15,9 +15,3 @@ def merge_image_and_audio(image_path, audio_path, output_path):
 
     # Write the result to a file
     video_clip.write_videofile(output_path, codec='libx264', audio_codec='aac')
-
-if __name__ == "__main__":
-    image_path = input("Path to the image you want to add audio to: ")
-    audio_path = input("Path to the audio file you want to use: ")
-    output_path = input("Name of the output file (xxx.mp4): ")
-    merge_image_and_audio(image_path, audio_path, output_path)
