@@ -30,7 +30,7 @@ def start():
     for line in ascii_art_lines:
         print(line.center(size, " "))
     cprint("Welcome to fools (short for funny tools)! This is just a small project by me (walper),", size=size)
-    cprint("So don't expect anything crazy.", size=size)
+    cprint("so don't expect anything crazy.", size=size)
     cprint("List of features:", size=size)
     cprint("separate: separates parts of images that are not connected into multimple images", size=size)
     cprint("ytdownload: downloads vids from YouTube using URL",size=size)
@@ -40,6 +40,7 @@ def start():
     cprint("surround: surrounds an image with balck edges and adds some text (funny)", size=size)
     cprint("extract: extracts audio from a video file")
     
+def ask():
     command = input("> ")
 
     if command == "separate":
@@ -58,6 +59,7 @@ def start():
         extract()
     else:
         print(Fore.RED + "Unknown command!" + Fore.RESET)
+        ask()
         
 @click.group()
 def cli():
