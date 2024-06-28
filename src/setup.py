@@ -4,7 +4,7 @@ DESCRIPTION = 'An app with some funny scripts.'
 
 setup(
     name='fools',
-    version='1.11',
+    version='1.12',
     author="walper",
     packages=find_packages(),
     include_package_data=True,

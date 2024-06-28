@@ -1,11 +1,4 @@
 import click, os
-from . import imageSeparator as separator
-from . import ytdownloader as downloader
-from . import renamer 
-from . import vidmaker
-from . import fsender
-from . import surrounder
-from . import extractor
 from colorama import Fore
 
 line1 = "      ___           ___           ___           ___       ___     "
@@ -39,6 +32,7 @@ def start():
     cprint("fsender: puts up a small website to either download or upload files, check out official repo for more info", size=size)
     cprint("surround: surrounds an image with balck edges and adds some text (funny)", size=size)
     cprint("extract: extracts audio from a video file")
+    ask()
     
 def ask():
     command = input("> ")
@@ -69,22 +63,26 @@ def cli():
 @click.option("--i", prompt="Path to the input image", help="The path for the image to process.")
 @click.option("--o", prompt="Path to folder for output", help="The path for the output image.")
 def separate(i, o):
+    from . import imageSeparator as separator
     separator.separate_connected_components(image_path=i, output_dir=o)
 
 @click.command()
 @click.option("--url", prompt="URL for the video you want to download", help="The URL for the video to be downloaded.")
 def download(url):
+    from . import ytdownloader as downloader
     downloader.download_youtube_video(url=url)
 
 @click.command()
 @click.option("--p", prompt="Path to the folder with the files to rename", help="Path to the folder with the files to rename.")
 def rename(p):
+    from . import renamer 
     renamer.rename_files_in_directory(p)
 
 @click.command()
 @click.option("--ipath", prompt="Path to the image you want to use", help="Path to the used image.")
 @click.option("--apath", prompt="Path to the audio file you want to use", help="Path to the audio file that'll be used")
 def makevid(ipath, apath):
+    from . import vidmaker
     vidmaker.merge_image_and_audio(image_path=ipath, audio_path=apath)
 
 @click.command()
@@ -92,6 +90,7 @@ def makevid(ipath, apath):
 @click.option("--p", prompt="Path to the file (enter some random letters if reciving)", help="Path to the file to be sent", required=False)
 @click.option("--port", prompt="The port you want to use", help="The port being used to display the website.")
 def sender(m, p, port):
+    from . import fsender
     if m.lower() == "r":
         fsender.runReciver(portNum=port)
         cprint(Fore.YELLOW + "ATTENTION! This bit is a bit complicated, but it's whatever your IP/URL is and /upload")
@@ -105,11 +104,13 @@ def sender(m, p, port):
 @click.option("--p", prompt="Path to the image to be modified", help="Path to image that'll be edited.")
 @click.option("--t", prompt="The text you want to display", help="The text to be added.")
 def surround(p,t):
+    from . import surrounder
     surrounder.add_black_border_with_text(image_path=p, text=t)
     
 @click.command()
 @click.option("--vp", prompt="The path to the video", help="The path to the video.")
 def extract(vp):
+    from . import extractor
     extractor.extract_audio(video_path=vp, output_audio_path="output_audio.mp3")
     
 cli.add_command(separate)

@@ -1,6 +1,6 @@
 from moviepy.editor import VideoFileClip
 
-def extract_audio(video_path, output_audio_path):
+def extract_audio(video_path: str, output_audio_path: str):
     """
     Extracts audio from a video file and saves it as an audio file.
 
