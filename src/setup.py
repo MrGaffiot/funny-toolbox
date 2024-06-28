@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+DESCRIPTION = 'An app with some funny scripts.'
+
 setup(
     name='fools',
-    version='1.1',
+    version='1.11',
+    author="walper",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -13,6 +16,14 @@ setup(
         'flask',
         'pillow',
         'moviepy'
+    ],
+    keywords=[
+        "toolsbox",
+        "tools",
+        "youtube",
+        "download",
+        "meme",
+        "walper"
     ],
     entry_points={
         'console_scripts': [
