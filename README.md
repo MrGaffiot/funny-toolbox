@@ -2,6 +2,11 @@
 Some funny stuff
 
 ## How to install???
+Run the command
+```
+pip install fools
+```
+(^may be outdated) or
 1) Install latest python (https://www.python.org/)
 2) Get the .zip fiel from relase
 3) Run this command while in the src directory:
