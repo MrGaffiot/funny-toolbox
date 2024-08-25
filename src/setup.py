@@ -15,7 +15,8 @@ setup(
         'moviepy',
         'flask',
         'pillow',
-        'moviepy'
+        'moviepy',
+        'pypotrace'
     ],
     keywords=[
         "toolsbox",
